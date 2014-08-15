@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17A56E2C-69A7-4F17-9333-1BC405A68B3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>POC.Search.Domain</RootNamespace>
+    <AssemblyName>POC.Search.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregates\Brand.cs" />
+    <Compile Include="Aggregates\BrandApplicationService.cs" />
+    <Compile Include="Aggregates\BrandState.cs" />
+    <Compile Include="Aggregates\Category.cs" />
+    <Compile Include="Aggregates\CategoryApplicationService.cs" />
+    <Compile Include="Aggregates\CategoryState.cs" />
+    <Compile Include="Aggregates\Facet.cs" />
+    <Compile Include="Aggregates\FacetApplicationService.cs" />
+    <Compile Include="Aggregates\FacetState.cs" />
+    <Compile Include="Aggregates\Food.cs" />
+    <Compile Include="Aggregates\FoodApplicationService.cs" />
+    <Compile Include="Aggregates\FoodState.cs" />
+    <Compile Include="Aggregates\Product.cs" />
+    <Compile Include="Aggregates\ProductApplicationService.cs" />
+    <Compile Include="Aggregates\ProductState.cs" />
+    <Compile Include="Comparers\BrandIdComparer.cs" />
+    <Compile Include="Comparers\CategoryIdComparer.cs" />
+    <Compile Include="Comparers\FoodIdComparer.cs" />
+    <Compile Include="Contracts\BrandContracts.cs" />
+    <Compile Include="Contracts\CategoryContracts.cs" />
+    <Compile Include="Contracts\Contracts.cs" />
+    <Compile Include="Contracts\FacetContracts.cs" />
+    <Compile Include="Contracts\FoodContracts.cs" />
+    <Compile Include="Contracts\ProductContract.cs" />
+    <Compile Include="Exceptions\AppendOnlyStoreConcurrencyException.cs" />
+    <Compile Include="Exceptions\OptimisticConcurrencyException.cs" />
+    <Compile Include="Exceptions\RealConcurrencyException.cs" />
+    <Compile Include="Infrastructure\Ensure.cs" />
+    <Compile Include="Interfaces\Interfaces.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BrandLookUp.cs" />
+    <Compile Include="Services\BrandLookUpProjection.cs" />
+    <Compile Include="Services\BrandTermLookUp.cs" />
+    <Compile Include="Services\BrandTermLookUpProjection.cs" />
+    <Compile Include="Services\CategoryLookUp.cs" />
+    <Compile Include="Services\CategoryLookUpProjection.cs" />
+    <Compile Include="Services\FoodLookUp.cs" />
+    <Compile Include="Services\FoodLookUpProjection.cs" />
+    <Compile Include="Services\IProjection.cs" />
+    <Compile Include="Services\Logger.cs" />
+    <Compile Include="Storage\AppendOnlyStream.cs" />
+    <Compile Include="Services\DomainEventPublisher.cs" />
+    <Compile Include="Storage\EventStore.cs" />
+    <Compile Include="Storage\EventStream.cs" />
+    <Compile Include="Storage\ExtendDocumentWriter.cs" />
+    <Compile Include="Storage\FileDocumentReaderWriter.cs" />
+    <Compile Include="Storage\FileEventStore.cs" />
+    <Compile Include="Storage\IAppendOnlyStore.cs" />
+    <Compile Include="Storage\IDocumentStrategy.cs" />
+    <Compile Include="Storage\IDocumentWriter.cs" />
+    <Compile Include="Storage\IEventStore.cs" />
+    <Compile Include="Storage\IDocumentReader.cs" />
+    <Compile Include="ValueObjects\BrandId.cs" />
+    <Compile Include="ValueObjects\BrandLookUpValue.cs" />
+    <Compile Include="ValueObjects\BrandTerm.cs" />
+    <Compile Include="ValueObjects\BrandTermLookUpValue.cs" />
+    <Compile Include="ValueObjects\CategoryAlias.cs" />
+    <Compile Include="ValueObjects\CategoryId.cs" />
+    <Compile Include="ValueObjects\CategoryLookUpValue.cs" />
+    <Compile Include="ValueObjects\Facet.cs" />
+    <Compile Include="ValueObjects\FacetId.cs" />
+    <Compile Include="ValueObjects\FoodId.cs" />
+    <Compile Include="ValueObjects\FoodLookUpValue.cs" />
+    <Compile Include="ValueObjects\FoodTerm.cs" />
+    <Compile Include="ValueObjects\ProductId.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
